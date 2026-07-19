@@ -29,7 +29,8 @@ jobs:
 
     - name: Setup Theos
       run: |
-        bash -c "$(curl -fsSL https://raw.githubusercontent.com/OwnGoalStudio/theos/ci/auth-token/bin/install-theos)"
+        curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos -o /tmp/install-theos
+        bash /tmp/install-theos
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -39,7 +40,8 @@ jobs:
 
     - name: Setup Theos (RootHide)
       run: |
-        bash -c "$(curl -fsSL https://raw.githubusercontent.com/OwnGoalStudio/theos-roothide/ci/auth-token/bin/install-theos)"
+        curl -fsSL https://raw.githubusercontent.com/OwnGoalStudio/theos-roothide/ci/auth-token/bin/install-theos -o /tmp/install-theos-roothide
+        bash /tmp/install-theos-roothide
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
